@@ -1,0 +1,745 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0;" name="viewport" />
+    <title>福利清单.xlsx</title>
+    <link href="" rel="shortcut icon"
+        type="image/x-icon" />
+    <link rel="stylesheet" href="https://cdn.staticfile.org/Swiper/3.2.6/css/swiper.min.css">
+    <style>
+     body{font-family:"Microsoft YaHei",arial;background-color:#f2f2f2;max-width:750px;margin:0 auto!important;font-size:.32rem}
+    ol,ul{list-style:none}
+    li{list-style-type:none}
+    .clearfix:after{display:block;overflow:hidden;clear:both;height:0;visibility:hidden;content:""}
+    img{width:100%;display:block}
+    *{margin:0;padding:0;-webkit-tap-highlight-color:transparent}
+    .comHidden{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+    .comHidden1{overflow:hidden;text-overflow:ellipsis;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical}
+    @media screen and (min-width:750px){.swiper-navbar::-webkit-scrollbar{width:0;height:0;background-color:#fafafa}
+    .swiper-navbar::-webkit-scrollbar-thumb{border-radius:0;background-color:rgba(0,0,0,0)}
+    }
+    [v-cloak]{display:none}
+    #app{min-height:100vh;position:relative}
+    .title{position:fixed;top:0;left:0;width:100%;height:.8rem;background:#217346;display:flex;left:50%;max-width:750px;transform:translate(-50%,0)}
+    .title li{color:#fff;font-size:.24rem;font-weight:700;display:flex;justify-content:center;align-items:center;text-align:center;position:relative;padding:0 .1rem;box-sizing:border-box}
+    .title li::before{content:"";position:absolute;left:0;top:50%;width:1px;height:.34rem;background:#427e55;width:1px;margin-top:-.18rem}
+    .shoplist li:nth-child(1),.title li:nth-child(1){width:17%;flex-shrink:0}
+    .shoplist li:nth-child(5),.title li:nth-child(5){width:15%}
+    .shoplist li:nth-child(3),.title li:nth-child(3){width:24%;flex-shrink:0}
+    .shoplist li:nth-child(4),.title li:nth-child(4){width:16%;flex-shrink:0}
+    .shoplist li:nth-child(2),.title li:nth-child(2){width:28%;flex-shrink:0}
+    .title li:nth-child(1)::before{content:initial}
+    .template2 .shoplist li:nth-child(1),.template2 .title li:nth-child(1){width:34.4%}
+    .template2 .shoplist li:nth-child(2),.template2 .title li:nth-child(2){width:41.2%}
+    .template2 .shoplist li:nth-child(3),.template2 .title li:nth-child(3){width:24.4%}
+    .template3 .title li:nth-child(1):before,.template3 .title li:nth-child(2):before{content:inherit}
+    .template3 .shoplist li:nth-child(1),.template3 .title li:nth-child(1){width:19%;border-right:none}
+    .template3 .title li:nth-child(2){padding-left:.46rem}
+    .template3 .shoplist li:nth-child(2),.template3 .title li:nth-child(2){width:32%;justify-content:end}
+    .template3 .shoplist li:nth-child(3),.template3 .title li:nth-child(3){width:27%}
+    .template3 .shoplist li:nth-child(4),.template3 .title li:nth-child(4){width:22%}
+    .shoplist{display:flex;background-color:#f2f2f2}
+    .shoplist li{color:#333;font-size:.22rem;display:flex;justify-content:center;align-items:center;text-align:center;border-right:1px solid #f8f8f8;padding:.2rem .1rem;box-sizing:border-box}
+    .shoplist li:last-child{border-right:none}
+    .shoplist:nth-last-child(2n){background-color:#fff}
+    .shoplistbtn{width:1.1rem;height:.45rem;line-height:.45rem;background:#217346;border-radius:.06rem;font-size:.2rem;color:#fff;text-align:center;cursor:pointer}
+    .shopPrice{font-size:.24rem;font-weight:700;color:#217346;font-style:normal}
+    .shopPrice-em{font-style:normal;font-size:.2rem;color:#999;text-decoration:line-through}
+    .red-packet{position:fixed;bottom:1.4rem;right:0;width:1.62rem;}
+    .gather-search{position:fixed;bottom:4.5rem;right:0;width:1.28rem;height:.83rem;background:#f6f6f6;box-shadow:0 .08rem .08rem 0 rgba(0,0,0,.1);opacity:.95;border-radius:.44rem 0 0 .44rem;display:flex;align-items:center;justify-content:center;border:.03rem solid #fff;border-right:0}
+    .gather-search img{width:.665rem}
+    .shop-Img>div{width:1rem;height:1rem;overflow:hidden}
+    .shop-Img>div img{max-width:100%;max-height:100%}
+    .inProduc-l-coupon{border-radius:.04rem;border:1px solid #217346;overflow:hidden;text-decoration:none}
+    .inProduc-l-coupon span{background-color:#217346;color:#fff;padding:0 .04rem}
+    .inProduc-l-coupon em{border:none;color:#217346;padding:0 .08rem;font-style:normal}
+    .footer-swiper{position:fixed;width:100%;bottom:0;background-color:#f6f6f6;max-width:750px;height:1.4rem;-webkit-box-shadow:0 -2px 5px -2px rgba(0,0,0,.1)}
+    .swiper-navbar{height:.7rem;overflow-x:auto;white-space:nowrap;width:6.8rem;margin:0 auto .2rem}
+    .swiper-navbar ul{ -webkit-overflow-scrolling:touch}
+    .swiper-next.active i,.swiper-prev.active i{background-image:url(http://img-haodanku-com.cdn.fudaiapp.com/FnxE9AM4zLRSHuqf2PxLIvw8e8Wk)}
+    .swiper-wrap{width:100%;position:relative}
+    .swiper-navbar li{width:2rem;color:#444;font-size:.24rem;cursor:pointer;border-right:1px solid #ededed;display:inline-block;text-align:center;flex-shrink:0;height:100%;box-sizing:border-box;align-items:center;display:inline-flex;justify-content:center;position:relative}
+    .swiper-navbar li p.active{color:#217346;background-color:#fff}
+    .swiper-navbar li p.active::after{position:absolute;content:"";bottom:0;left:0;width:100%;height:.04rem;background-color:#217346}
+    .swiper-navbar li p{width:100%;height:100%;display:flex;justify-content:center;align-items:center;line-height:100%}
+    .swiper-button-next0,.swiper-button-prev0{width:.35rem;background:#fff;top:0;margin:0;height:100%;left:0;display:flex;align-items:center;justify-content:center;border-right:1px solid #ededed;box-sizing:border-box}
+    .swiper-button-next0{left:initial;right:0;border-left:none;border-left:1px solid #ededed}
+    .swiper-button-next0 i,.swiper-button-prev0 i{background-image:url(http://img-haodanku-com.cdn.fudaiapp.com/FpVRyfVBr2Hf8h_M5DxpA-CUa5M-);width:.3rem;height:.3rem;display:block;background-size:100% 100%;transform:rotate(90deg);background-repeat:no-repeat}
+    .swiper-button-prev0 i{transform:rotate(-90deg)}
+    .swiper-button-next.swiper-button-disabled,.swiper-button-prev.swiper-button-disabled{opacity:1}
+    .swiper-button-next.swiper-button-disabled i,.swiper-button-prev.swiper-button-disabled i{background-image:url(http://img-haodanku-com.cdn.fudaiapp.com/FnxE9AM4zLRSHuqf2PxLIvw8e8Wk)}
+    .combox{width:100%;-webkit-overflow-scrolling:touch}
+    .gather-main .combox{top:.8rem}
+    .realpic-loading{color:#999;font-size:.24rem;text-align:center;margin:2px 0}
+    .vmIconLoad{width:.32rem;height:.32rem;font-size:20px;color:#4d74ff;display:inline-block;vertical-align:middle;background-image:url(http://img-haodanku-com.cdn.fudaiapp.com/Fs3CUOAV8FeUjyhyU-3xOO5DSphI);background-repeat:no-repeat;background-size:100% 100%;-webkit-animation:vmspinLoad 2s infinite linear;animation:vmspinLoad 1.2s infinite linear}
+    .realpic-loading-new{position:fixed;top:50%;left:50%;margin-left:-.32rem;margin-top:-.32rem;z-index:9999999999}
+    .realpic-loading-new .vmIconLoad{width:.64rem;height:.64rem;background-image:url(http://img-haodanku-com.cdn.fudaiapp.com/FqudiwU41h6RPRrC4qATMzygmp82)}
+    .realpic-loading em{display:inline-block;vertical-align:middle;font-style:inherit}
+    .vmIconLoad:before{ -webkit-font-smoothing:antialiased;transform:translate(0,0)}
+    @keyframes vmspinLoad{from{transform:rotate(0)}
+    50%{transform:rotate(180deg)}
+    to{transform:rotate(360deg)}
+    }
+    @-webkit-keyframes vmspinLoad{from{transform:rotate(0)}
+    50%{transform:rotate(180deg)}
+    to{transform:rotate(360deg)}
+    }
+    .copyhide{opacity:0;position:absolute;top:0;left:0;z-index:-1000}
+    .js-dust{display:none;position:fixed;top:50%;left:50%;width:7.5rem;height:9rem;transform:translate(-50%,-50%)}
+    .js-dust-box{position:relative}
+    .js-dust-box i{position:absolute;top:1.25rem;left:.82rem;width:5.6rem;height:6.78rem;cursor:pointer}
+    .Econtent-box span,.js-dust-box span,.shareBox span{position:absolute;bottom:-1rem;left:50%;margin-left:-.3rem;width:.6rem;height:.6rem;background:url(http://img-haodanku-com.cdn.fudaiapp.com/Fo2-nJ_43fsFStbAfqMUEcCFJnJ6);background-size:100% 100%;cursor:pointer}
+    .swiper-next,.swiper-prev{position:absolute;top:0;height:.7rem;width:.35rem;background:#fff;top:0;display:flex;align-items:center;justify-content:center;border-right:1px solid #ededed;box-sizing:border-box}
+    .swiper-prev i{transform:rotate(-90deg)}
+    .swiper-next i,.swiper-prev i{background-image:url(http://img-haodanku-com.cdn.fudaiapp.com/FpVRyfVBr2Hf8h_M5DxpA-CUa5M-);width:.3rem;height:.3rem;display:block;background-size:100% 100%;transform:rotate(90deg);background-repeat:no-repeat}
+    .swiper-prev i{transform:rotate(-90deg)}
+    .swiper-next{left:initial;right:0;border-right:none;border-left:1px solid #ededed}
+    .wrapMain{position:absolute;top:.8rem;bottom:1.4rem;width:100%;overflow:auto;-webkit-overflow-scrolling:touch}
+    .swiper-nav{width:95.4%;overflow:hidden;padding:0 .35rem;margin:0 auto}
+    .Econtent{position:fixed;top:50%;left:50%;display:none;width:5.8rem;height:6.88rem;margin-left:-2.9rem;margin-top:-3.44rem;background:url(http://img.fqapps.com/258627940aca1f586048a2b314e2d19a) no-repeat;background-size:90% 90%;background-position:50% 50%}
+    .Econtent-box{position:relative;padding-top:3.84rem}
+    .taokolintext{text-align:center;color:#fff;height:.4rem}
+    .btnBox{color:rgba(255,255,255,.4);text-align:center;font-size:.22rem;margin-top:.6rem}
+    .Econtent-box span{bottom:-2rem}
+    .share{position:fixed;right:0;bottom:3.5rem;width:1.28rem;height:.83rem;background:#f6f6f6;box-shadow:0 .08rem .08rem 0 rgba(0,0,0,.1);opacity:.95;border-radius:.44rem 0 0 .44rem;display:flex;align-items:center;justify-content:center;border:.03rem solid #fff;border-right:0}
+    .share img{width:.665rem;margin-left:.25rem}
+    .share i{margin-left:-.2rem;margin-top:-.5rem}
+    .shareBox{display:none;position:fixed;top:50%;left:50%;width:5.2rem;transform:translate(-50%,-50%)}
+    .shareBox img{width:100%;border-radius:.1rem}
+    .shareBox span{bottom:-.8rem}
+    .swiper-font{width:100%;font-size:.22rem;height:.5rem;line-height:.5rem;padding-left:10px;background:#217346;color:#fff;max-width:750px;margin:0 auto;z-index:123}
+    .swiper-font .swiper-wrapper{transition-timing-function:linear}
+
+    </style>
+</head>
+
+<body>
+    <div id="app" v-cloak>
+        <ul class="title">
+            <li>图片</li>
+            <li>商品标题</li>
+            <li>优惠信息</li>
+            <li>到手价</li>
+            <li>购买</li>
+        </ul>
+        <div v-if="oDusBool" class="wrapMain">
+            <a href="javascript:" class="banner"><img :src="oDustToken.bannerImg1"></a>
+            <!-- <a href="javascript:" class="banner"><img :src="oDustToken.bannerImg1"></a> -->
+            <div>
+                <div v-if="templateBool ==1">
+                    <div class="combox">
+                        <ul class="shoplist" v-for="(item,index) in shopArr">
+                            <li class="shop-Img">
+                                <div class=" comflexCenter" v-if="item.image !=''">
+                                    <img :src="item.image|imgFun">
+                                </div>
+                                <p v-else>无</p>
+                            </li>
+                            <li>
+                                <p v-if="item.itemtitle !=''" class="comHidden1">{{item.itemtitle}}</p>
+                                <p v-else>无</p>
+                            </li>
+                            <li>
+                                <div v-if="item.couponmoney>0 || item.remark !=''">
+                                    <!-- <a :href="item.couponurl" target="_blank" class="inProduc-l-coupon"
+                                        v-if="item.couponmoney>0 && navType == 11"><span>券</span><em>{{parseFloat(item.couponmoney)}}</em></a> -->
+                                    <p v-if="item.remark !=''" class="comHidden1">{{item.remark}}</p>
+                                </div>
+                                <p v-else>无</p>
+                            </li>
+                            <li>
+                                <i v-if="item.seckill_price>=0"
+                                    class="shopPrice">￥{{parseFloat(item.seckill_price)}}<br><em
+                                        class="shopPrice-em">￥{{parseFloat(item.price)}}</em></i><i v-else>-</i>
+                            </li>
+                            <li>
+                                <p class="shoplistbtn" v-on:click="tokenBtn(index,item)" :id="'shop'+index">去抢购</p>
+                            </li>
+                        </ul>
+                        <p class="realpic-loading" v-if="loadshow && templateBool==1"><i
+                                class="vmIconLoad"></i><em>数据加载中...</em></p>
+                        <p class="realpic-loading" v-else>数据已经加载完了</p>
+                    </div>
+                </div>
+                <div class="template2" v-if="templateBool == 2">
+                    <ul class="title">
+                        <li>会场图</li>
+                        <li>会场名称</li>
+                        <li>购买</li>
+                    </ul>
+                    <div class="combox">
+                        <ul class="shoplist" v-for="(item,index) in shopArr">
+                            <li>
+                                <div class=" comflexCenter" v-if="item.activity_image !=''">
+                                    <img :src="item.activity_image">
+                                </div>
+                                <p v-else>无</p>
+                            </li>
+                            <li>
+                                <p v-if="item.activity_name !=''" class="comHidden1">{{item.activity_name}}</p>
+                                <p v-else>无</p>
+                            </li>
+                            <li>
+                                <p class="shoplistbtn" v-on:click="createConferenceCode(index,item)" :id="'shop'+index">进入会场</p>
+                            </li>
+                        </ul>
+                        <p class="realpic-loading" v-if="loadshow && templateBool == 2"><i
+                                class="vmIconLoad"></i><em>数据加载中...</em></p>
+                        <p class="realpic-loading" v-else>数据已经加载完了</p>
+                    </div>
+                </div>
+                <div class=" template3" v-if="templateBool == 3">
+                    <ul class="title">
+                        <li></li>
+                        <li>店铺</li>
+                        <li>优惠信息</li>
+                        <li>进入店铺</li>
+                    </ul>
+                    <div class="combox">
+                        <ul class="shoplist" v-for="(item,index) in shopArr">
+                            <li>
+                                <div class=" comflexCenter" v-if="item.shoplgo !=''" style="width: 1rem;height: 1rem;">
+                                    <img :src="item.shoplgo">
+                                </div>
+                                <p v-else>无</p>
+                            </li>
+                            <li>
+                                <p class="comHidden1">{{item.shopname !=''?item.shopname:'无'}}</p>
+                            </li>
+                            <li>
+                                <p class="comHidden1">{{item.remark !=''?item.remark:'无'}}</p>
+                            </li>
+                            <li>
+                                <p class="shoplistbtn" v-on:click="tokenBtn(index,item)" :id="'shop'+index">进入店铺</p>
+                            </li>
+                        </ul>
+                        <p class="realpic-loading" v-if="loadshow && templateBool == 3"><i
+                                class="vmIconLoad"></i><em>数据加载中...</em></p>
+                        <p class="realpic-loading" v-else>数据已经加载完了</p>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        <p class="realpic-loading realpic-loading-new" v-if="dusLoad"><i class="vmIconLoad"></i><em></em></p>
+        <div class="footer-swiper">
+            <div class="swiper-wrap">
+                <div class="swiper-container swiper-navbar">
+                    <ul class="swiper-wrapper">
+                        <li class="swiper-slide" v-for="(item,index) in navArr">
+                            <p v-on:click="navBtn(item)" :class="item.type == navType?'active':''">{{item.name}}</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="swiper-button-prev swiper-button-prev0"><i></i></div>
+                <div class="swiper-button-next swiper-button-next0"><i></i></div>
+            </div>
+            <!-- <div
+                style="width: 100%;font-size: 0.22rem;height: 0.5rem;line-height: 0.5rem;padding-left: 10px;background: #217346;color: #fff;max-width:750px;margin:0 auto;z-index:123;">
+                <span>实时更新数据</span></div> -->
+
+            <div class="swiper-container swiper-font swiper-no-swiping">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" v-for="(item,index) in plateArr">{{item.report}}</div>
+                </div>
+                <!-- Add Pagination -->
+                <div class="swiper-pagination"></div>
+            </div>
+        </div>
+        <div>
+            <div class="red-packet" v-if="iconShut && oDustToken.packetShow && scrollShow">
+                <img :src="oDustToken.little_packet" v-on:click="popupFun()">
+            </div>
+
+            <div class="js-dust" v-if="oDustToken.packetShow">
+                <div class="js-dust-box">
+                    <img :src="oDustToken.big_packet">
+                    <i v-on:click="createConferenceCode('123456789',oDustToken)" id="shop123456789"></i>
+                    <span v-on:click='layer.closeAll()'></span>
+                </div>
+            </div>
+
+            <div class="Econtent">
+                <div class="Econtent-box">
+                    <div class="taokolintext">{{Token}}</div>
+                    <div class="btnBox">手动长按复制口令</div>
+                    <span v-on:click='layer.closeAll()'></span>
+                </div>
+            </div>
+            <div class="shareBox" v-if="oDustToken.shareShow">
+                <img :src="oDustToken.poster">
+                <p style="color: #fef1f1;text-align: center; font-size: 0.22rem; margin-top: 0.1rem;">长按保存图片分享</p>
+                <span v-on:click='layer.closeAll()'></span>
+            </div>
+
+            <div class="share" v-on:click="shareBtn()"
+                v-if="shareShut && oDustToken.poster &&oDustToken.shareShow && scrollShow">
+                <img src="http://img-haodanku-com.cdn.fudaiapp.com/FnrO3dSaobwhdtuZDDhnZS4sjrlF">
+            </div>
+            <a :href="addSearch" class="gather-search" >
+                <img src="http://img-haodanku-com.cdn.fudaiapp.com/FmkQ5Pvie1NIt6K-qT1hd6RAxoa4">
+            </a>
+        </div>
+    </div>
+    <script src="https://cdn.staticfile.org/jquery/2.2.4/jquery.min.js"></script>
+    <script src="https://cdn.staticfile.org/Swiper/3.2.6/js/swiper.min.js"></script>
+    <script src="https://cdn.staticfile.org/vue/2.6.10/vue.min.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/layer/2.3/layer.js"></script>
+    <script src="https://cdn.staticfile.org/clipboard.js/2.0.4/clipboard.min.js"></script>
+    <script>
+        (function (e, c) { function m() { var k = h.getBoundingClientRect().width; 540 < k / a && (k = 540 * a); k *= .133334; h.style.fontSize = k + "px"; l.rem = e.rem = k } var d = e.document, h = d.documentElement, f = d.querySelector('meta[name="viewport"]'), g = d.querySelector('meta[name="flexible"]'), a = 0, b = 0, n, l = c.flexible || (c.flexible = {}); if (f) { if (c = f.getAttribute("content").match(/initial\-scale=([\d\.]+)/)) b = parseFloat(c[1]), a = parseInt(1 / b) } else g && (g = g.getAttribute("content")) && (c = g.match(/initial\-dpr=([\d\.]+)/), g = g.match(/maximum\-dpr=([\d\.]+)/), c && (a = parseFloat(c[1]), b = parseFloat((1 / a).toFixed(2))), g && (a = parseFloat(g[1]), b = parseFloat((1 / a).toFixed(2)))); a || b || (e.navigator.appVersion.match(/android/gi), b = e.navigator.appVersion.match(/iphone/gi), c = e.devicePixelRatio, a = b ? 3 <= c && (!a || 3 <= a) ? 3 : 2 <= c && (!a || 2 <= a) ? 2 : 1 : 1, b = 1 / a); h.setAttribute("data-dpr", a); f || (f = d.createElement("meta"), f.setAttribute("name", "viewport"), f.setAttribute("content", "initial-scale=" + b + ", maximum-scale=" + b + ", minimum-scale=" + b + ", user-scalable=no"), h.firstElementChild ? h.firstElementChild.appendChild(f) : (b = d.createElement("div"), b.appendChild(f), d.write(b.innerHTML))); e.addEventListener("resize", function () { clearTimeout(n); n = setTimeout(m, 300) }, !1); e.addEventListener("pageshow", function (a) { a.persisted && (clearTimeout(n), n = setTimeout(m, 300)) }, !1); "complete" === d.readyState ? d.body.style.fontSize = 12 * a + "px" : d.addEventListener("DOMContentLoaded", function (b) { d.body.style.fontSize = 12 * a + "px" }, !1); m(); l.dpr = e.dpr = a; l.refreshRem = m; l.rem2px = function (a) { var b = parseFloat(a) * this.rem; "string" === typeof a && a.match(/rem$/) && (b += "px"); return b }; l.px2rem = function (a) { var b = parseFloat(a) / this.rem; "string" === typeof a && a.match(/px$/) && (b += "rem"); return b } })(window, window.lib || (window.lib = {}));
+    </script>
+    <script>
+        var vmUrlSearchs = null;
+        function vmRequest(name) {
+            if (!vmUrlSearchs) {
+                vmUrlSearchs = new vmUrlSearch();
+            }
+            return vmUrlSearchs[name];
+        };
+
+        function vmUrlSearch() {
+            var name, value;
+            var str = location.href;
+            var num = str.indexOf("?");
+            str = str.substr(num + 1);
+            var arr = str.split("&");
+            for (var i = 0; i < arr.length; i++) {
+                if (num = arr[i].indexOf('=') != -1) {
+                    num = arr[i].indexOf('=');
+                } else {
+                    num = arr[i].indexOf('/');
+                }
+                if (num > 0) {
+                    name = arr[i].substring(0, num);
+                    value = arr[i].substr(num + 1);
+                    this[name] = value;
+                }
+            }
+        };
+        var app = new Vue({
+            el: "#app",
+            data: {
+                shopArr: [],
+                page: 1,
+                loadmsg: true,
+                loadshow: true,
+                navArr: [],
+                navType: '',
+                templateBool: 1,// 1 为爆款清单 2会场 3免单
+                Token: '',
+                codeId: vmRequest('code'),
+
+                oDustToken: {
+                    activity_id: '',
+                    activity_name: '',
+                    itemid: '',
+                    activity_url: '',
+                    poster: '', //分享图片
+                    bannerImg1: '',
+                    bannerImg2: '',
+                    packetShow: false,
+                    shareShow: false,
+                    little_packet: '', //小红包
+                    big_packet: '',  //大红包
+                    kz_ad_links: '', //清单页广告
+                },
+
+                oDusBool: false,
+                oDustShowad: '',
+
+                dusLoad: true,
+
+                iconShut: true,
+                shareShut: true,
+
+                swiperPrev: true,
+                swiperNext: false,
+
+                plateArr: [],
+
+                scrollShow: true,  //滚动显示隐藏
+                addSearch: window.location.protocol.substring(0, window.location.protocol.length - 1) + '://' + window.location.host + '/gather_search.html',
+
+            },
+            created: function () {
+
+
+            },
+            mounted: function () {
+                this.checkAdFun();
+
+            },
+            filters: {
+                imgFun: function (url) {
+                    if (url.indexOf('jpg_') != '-1') {
+                        return url;
+                    } else {
+                        return url + '_310x310.jpg';
+                    }
+                }
+            },
+            methods: {
+                taobaoscroll: function () {  //滚动加载
+                    var that = this;
+                    var nScrollHight = 0;
+                    var nScrollTop = 0;
+                    var nDivHight = $(".wrapMain").height();
+                    $(".wrapMain").scroll(function () {
+
+                        nScrollHight = $(this)[0].scrollHeight;
+                        nScrollTop = $(this)[0].scrollTop;
+                        if (nScrollTop > 10) {
+                            that.scrollShow = false;
+                        } else {
+                            that.scrollShow = true;
+                        }
+                        if (parseInt(nScrollTop + nDivHight) + 10 >= nScrollHight) {
+                            if (that.loadmsg) {
+                                that.loadmsg = false;
+                                that.ajaxShop();
+                            }
+                        }
+                    });
+                },
+                ajaxShop: function () {
+                    var that = this;
+                    var type = that.navType + '/p' + that.page;
+                    var url = 'https://1111activity.ss.bscstorage.com/' + type + '.json?t=' + Math.ceil(Math.random() * 1000);
+                    this.taobaoscroll();
+
+                    $.ajax({
+                        type: 'GET',
+                        url: url,
+                        data: {},
+                        dataType: 'json',
+                        timeout: 5000,
+                        success: function (data) {
+                            that.shopArr = that.shopArr.concat(data);
+                            if (data.length < 20) {
+                                that.loadmsg = false;
+                                that.loadshow = false;
+                            } else {
+                                that.loadmsg = true;
+                                that.loadshow = true;
+                                that.page += 1;
+                            }
+                        },
+                        error: function () {
+                            that.loadmsg = false;
+                            that.loadshow = false;
+                        },
+                    });
+                },
+                templateState: function () {
+                    if (this.navType == 7 || this.navType == 12) {
+                        this.templateBool = 2;
+
+                    } else if (this.navType == 66) {
+                        this.templateBool = 3;
+                    } else {
+                        this.templateBool = 1;
+                    }
+                },
+                ajaxNav: function () {
+                    var that = this;
+                    $.ajax({
+                        type: 'GET',
+                        url: 'https://1111activity.ss.bscstorage.com/types.json?t=' + Math.ceil(Math.random() * 1000),
+                        data: {},
+                        dataType: 'json',
+                        timeout: 5000,
+                        success: function (data) {
+                            that.navArr = data;
+                            that.navType = data[0].type;
+                            that.templateState();
+                            that.ajaxShop();
+                            that.$nextTick(function () {
+                                that.plateFun();
+                            })
+
+                            that.$nextTick(function () {
+                                var swiper1 = new Swiper('.swiper-navbar', {
+                                    prevButton: '.swiper-button-prev0',
+                                    nextButton: '.swiper-button-next0',
+                                    slidesPerView: 'auto',
+                                    roundLengths: true,
+                                    paginationClickable: true,
+                                    spaceBetween: 0,
+                                    // slideToClickedSlide: true,  //是否可以点击 
+                                });
+                            })
+
+                        },
+                        error: function () {
+
+                        },
+
+                    });
+                },
+                navBtn: function (item) {
+                    var that = this;
+                    this.navType = item.type;
+                    this.shopArr = [];
+                    this.page = 1;
+                    this.loadmsg = false;
+                    this.loadshow = true;
+                    this.templateState();
+                    setTimeout(function () {
+                        that.ajaxShop();
+                        // that.taobaoscroll();
+                    }, 30)
+
+                },
+                createConferenceCode:function(oIndex,item){
+                    var that  = this;
+                    var title;
+                    if(oIndex == 123456789){
+                        title = item.itemtitle;
+                    }else{
+                        title = item.activity_name;
+                    }
+                    $.ajax({
+                        type: 'Post',
+                        url: 'http://v2.api.haodanku.com/createConference_code',
+                        data: {
+                            apikey: 'F3BA8FFF6B8D', //---必填
+                            tb_name:'tb842858', //---必填
+                            pid:'mm_258290010_1418300073_110154850049',     //---必填
+                            activity_id: item.activity_id,
+                            title: title,
+                        },
+                        dataType: 'json',
+                        timeout: 5000,
+                        async: false,
+                        success: function (data) {
+                            that.dusLoad = false;
+                            if (data.code == "200") {
+                                that.Token = '0'+data.data.tao_code +'/';
+                            } else {
+                                that.Token = '';
+                                layer.msg(data.msg, {
+                                    time: 2000,
+                                    shade: 0.1,
+                                    shadeClose: true
+                                })
+                            }
+                        },
+                        error: function () {
+                            that.Token = '';
+                            layer.msg('网络错误，请检查网络重试', {
+                                time: 2000,
+                                shade: 0.1,
+                                shadeClose: true
+                            })
+                        },
+                    });
+                    that.copyBtn(oIndex);
+                },
+                tokenBtn: function (oIndex, item) {
+                    var that = this;
+                    if (this.navType == 7 || this.navType == 12) {
+                        var title = item.activity_name;
+                    } else if (this.navType == 66) {
+                        var title = item.shopname;
+                    } else {
+                        var title = item.itemtitle;
+                    };
+
+                    $.ajax({
+                        type: 'Post',
+                        url: 'http://v2.api.haodanku.com/ratesurl',
+                        data: {
+                            apikey: 'F3BA8FFF6B8D', //---必填
+                            tb_name: 'tb842858', //---必填
+                            pid: 'mm_258290010_1418300073_110154850049',     //---必填
+                            title: title,
+                            itemid: item.itemid,
+                            activityid: item.activityid,
+                            get_taoword:1
+                        },
+                        dataType: 'json',
+                        timeout: 5000,
+                        async: false,
+                        success: function (data) {
+                            that.dusLoad = false;
+                            if (data.code == "1") {
+                                that.Token = '0'+data.data.taoword + '/';
+                            } else {
+                                that.Token = '';
+                                layer.msg(data.msg, {
+                                    time: 2000,
+                                    shade: 0.1,
+                                    shadeClose: true
+                                })
+                            }
+                        },
+                        error: function () {
+                            that.Token = '';
+                            layer.msg('网络错误，请检查网络重试', {
+                                time: 2000,
+                                shade: 0.1,
+                                shadeClose: true
+                            })
+                        },
+                    });
+                    that.copyBtn(oIndex);
+                },
+                copyBtn: function (oIndex) { //复制公共方法
+                    var that = this;
+                    var clipboard = new ClipboardJS('#shop' + oIndex, {
+                        text: function (target) {
+                            return  that.Token;
+                        }
+                    });
+                    clipboard.on('success', function (e) {
+                        layer.msg('复制口令成功,请打开淘宝领取', {
+                            shade: 0.4,
+                            time: 2000,
+                            shadeClose: true,
+                        }, function () {
+                            layer.closeAll();
+                        });
+                        // e.clearSelection();
+                        // clipboard.destroy();
+                    });
+                    clipboard.on('error', function (e) {
+                        layer.msg('复制口令失败！', {
+                            shade: 0.4,
+                            time: 1000,
+                            shadeClose: false,
+                        }, function () {
+                            layer.open({
+                                type: 1,
+                                shift: 0,
+                                title: false,
+                                closeBtn: 0,
+                                shade: 0.4,
+                                shadeClose: true,
+                                content: $('.Econtent')
+                            });
+                        });
+
+                    });
+                },
+
+                checkAdFun: function () {
+                    var that = this;
+                    $.ajax({
+                        type: 'Get',
+                        url: 'https://api.haodanku.com/Activity/checkAd',
+                        data: {
+                            code: that.codeId
+                        },
+                        dataType: 'json',
+                        timeout: 5000,
+                        success: function (data) {
+                            if (data.code == "200") {
+                                that.oDustToken = {
+                                    activity_id: data.data.activity_id,
+                                    itemtitle: data.data.activity_name,
+                                    itemid: '',
+                                    activity_url: '',
+                                    poster: data.data.poster,
+                                    bannerImg1: data.data.kz_banner,
+                                    bannerImg2: data.data.kz_ad_banner,
+                                    shareShow: data.data.kz_share_show == 1 ? true : false,
+                                    packetShow: data.data.kz_packet_show == 1 ? true : false,
+                                    little_packet: data.data.kz_little_packet,
+                                    big_packet: data.data.kz_big_packet,
+                                    kz_ad_links: data.data.kz_ad_links
+                                };
+                                if (that.codeId != undefined && that.codeId != '') {
+                                    that.oDustShowad = data.data.is_show_ad;
+                                } else {
+                                    that.oDustShowad = 0;
+                                }
+                                that.ajaxNav();
+                                that.$nextTick(function () {
+                                    if (that.oDustToken.packetShow) {
+                                        that.popupFun();
+                                    }
+                                    that.oDusBool = true;
+                                    that.dusLoad = false;
+
+                                })
+                            } else {
+                                layer.msg(data.message, {
+                                    time: 2000,
+                                    shade: 0.1,
+                                    shadeClose: true
+                                })
+                            }
+                        },
+                        error: function () {
+                            layer.msg('网络错误，请检查网络重试', {
+                                time: 2000,
+                                shade: 0.1,
+                                shadeClose: true
+                            })
+                        },
+                    });
+                },
+
+                plateFun: function () {   //baogao 
+                    var that = this;
+                    $.ajax({
+                        type: 'Get',
+                        url: 'https://www.haodanku.com/activity/activity_plate',
+                        data: {},
+                        dataType: 'json',
+                        timeout: 5000,
+                        success: function (data) {
+                            if (data.code == "200") {
+                                that.plateArr = data.data;
+                                that.$nextTick(function () {
+                                    var mySwiper2 = new Swiper('.swiper-font', {
+                                        // direction: 'vertical', //向上
+                                        autoplay: 1,
+                                        speed: 8000, //速度
+                                        loop: true, //自动轮播
+                                        freeMode: true,
+                                        slidesPerView: 1,
+                                        autoplayDisableOnInteraction: false,
+                                        // spaceBetween: 5,
+                                        noSwiping: true,  //禁止用户操作要配合<div class="swiper-slide clearfix swiper-no-swiping">
+                                        roundLengths: true
+                                    });
+                                })
+
+                            }
+                        },
+                    });
+                },
+                popupFun: function () {
+                    layer.open({
+                        type: 1,
+                        shift: 0,
+                        title: false,
+                        closeBtn: 0,
+                        shade: 0.4,
+                        shadeClose: true,
+                        content: $('.js-dust')
+                    });
+                },
+                shareBtn: function () {
+                    layer.open({
+                        type: 1,
+                        shift: 0,
+                        title: false,
+                        closeBtn: 0,
+                        shade: 0.4,
+                        shadeClose: true,
+                        content: $('.shareBox')
+                    });
+                }
+            },
+        })
+    </script>
+</body>
+
+</html>
